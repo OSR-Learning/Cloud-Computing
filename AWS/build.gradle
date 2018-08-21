@@ -1,0 +1,36 @@
+buildscript {
+repositories {
+    // Use jcenter for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+	mavenCentral()
+    jcenter()
+}
+  dependencies {
+      classpath "io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE"
+  }
+}
+
+plugins {
+    id 'java-library'
+}
+
+group = 'org.osr.learning.cloudcomputing.aws'
+version = '0.0.1'
+apply plugin: "io.spring.dependency-management"
+
+
+jar {
+    manifest {
+        attributes('Implementation-Title': project.name, 'Implementation-Version': project.version)
+    }
+}
+
+dependencyManagement {
+  imports {
+      mavenBom 'com.amazonaws:aws-java-sdk-bom:1.11.228'
+  }
+}
+
+dependencies {
+  compile 'com.amazonaws:aws-java-sdk-s3'
+}

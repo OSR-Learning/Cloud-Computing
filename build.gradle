@@ -1,26 +1,37 @@
 group = 'org.osr.learning.cloudcomputing'
-version = '1.0.0.SNAPSHOT'
+description = "Learning: Cloud Computing"
 
 allprojects {
+    task hello {
+        doLast { task ->
+            println "Project Name: $task.project.name"
+        }
+    }
+}
+subprojects {
+    hello {
+        doLast {
+            println "- I depend on water"
+        }
+    }
+	
 	apply plugin: 'java'
 	apply plugin: 'eclipse'
 	
-	// Java Development Kit Version
-	sourceCompatibility = '1.9'
-	targetCompatibility = '1.9'
-
-	repositories {
-		mavenCentral()		
+	dependencies {
+		testCompileOnly('junit:junit:4.12')
+		testImplementation('org.junit.jupiter:junit-jupiter-api:5.1.0')
+		testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.1.0', 'org.junit.vintage:junit-vintage-engine:5.1.0')
 	}
 	
-	dependencies {
-		testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.2.0'
-		testRuntime group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.2.0'
-		compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.11.0'
-		compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.11.0'
-	}
+	repositories {
+    // Use jcenter for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+	mavenCentral()
+    jcenter()
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.6'
+
+	
+
 }

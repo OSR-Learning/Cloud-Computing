@@ -1,0 +1,13 @@
+plugins {
+    id 'java-library'
+}
+
+version = '0.0.1'
+dependencies {
+}
+
+jar {
+    manifest {
+        attributes('Implementation-Title': project.name, 'Implementation-Version': project.version)
+    }
+}
