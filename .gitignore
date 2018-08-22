@@ -1,0 +1,25 @@
+# Eclipse
+.classpath
+.project
+.settings
+bin
+
+# Mac
+.DS_Store
+
+
+# Maven
+target/
+
+# Gradle
+.gradle
+build/
+
+# Amazon Web Services
+#AwsCredentials.properties
+
+
+# Others
+#.idea
+#*.iml
+#.bin
