@@ -29,9 +29,6 @@ subprojects {
     // You can declare any Maven/Ivy/file repository here.
 	mavenCentral()
     jcenter()
-}
-
-
-	
+}	
 
 }
